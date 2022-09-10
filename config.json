@@ -1,3 +1,11 @@
 {
-    "showLocation": false
+   "configs":[
+   {
+       "showLocation": false
+   },
+   {
+       "logDir": "/home/whatever/dvmhost/"
+   }
+  ]
 }
+

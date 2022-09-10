@@ -15,17 +15,17 @@
      * ko4uyj@gmail.com
      */
 
-    //include('config.inc');
     date_default_timezone_set("UTC");
-
-    $lType = $_GET['log'];
-    $logDirectory = "/home/uyj/dvmhost/";
+    $configJson = file_get_contents('config.json');
+    $config1 = json_decode($configJson, true);
+    $config = $config1['configs'];
+    foreach ($config as $key => $configs){
+    	 $logDirectory[$key] = $configs['logDir'];
+         $showLocation[$key] = $configs['showLocation'];
+    }
     $cDate = date("Y-m-d");
     $lType = ".activity";
-    $logFile = $logDirectory . "DVM-" . $cDate . $lType . ".log";
-
-    $configJson = file_get_contents('config.json');
-    $config = json_decode($configJson, true);
+    $logFile = $logDirectory[1] . "DVM-" . $cDate . $lType . ".log";
     foreach ($locationConfig as $key => $locationConfigs){
         $locationConfig = $locationConfigs['answer'];
     }
@@ -37,12 +37,11 @@ $idAlias = json_decode($idJson, true);
 $stuff = $idAlias['rIds'];
 $tgAlias = $idAlias['tgIds'];
 
-
 foreach ($csvData as $key => $csvDatum) {
 	$csvDatum = str_replace("A: ", "", $csvDatum);
 	$csvDatum = preg_replace('/\s+/', ' ', $csvDatum); // Replaces consecutive spaces with a single space
 
- 	$isLocation = str_contains($csvDatum, 'location') && !$config['showLocation'];
+ 	$isLocation = str_contains($csvDatum, 'location') && !$showLocation[0];
 
 	$isValid = !$isLocation && !empty($csvDatum);
 
