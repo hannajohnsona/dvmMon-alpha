@@ -3,7 +3,8 @@
 # Instructions for dvmMon
 (if apache) sudo mkdir /var/www/html/dvmMon<br />
 Place all this in a folder on your web server if using apache2, /var/www/html/dvmMon<br/>
-Open config.json and read it and set those to what you want it to be
+Open config.json and read it and set those to what you want it to be<br />
+Open idAlias.json to set radio id alias and tg id alias
 # Debian set up
 sudo apt install apache2<br />
 sudo add-apt-repository ppa:ondrej/PHP <br />
