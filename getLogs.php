@@ -1,8 +1,6 @@
 <html lang="en">
 <head>
     <title>DVM HOST</title>
-    <script>
-    </script>
 </head>
 <body>
 
