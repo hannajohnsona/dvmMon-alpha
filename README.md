@@ -1,7 +1,8 @@
 # DVM - Mon
 # A web monitor for dvmhost
 # Instructions for dvmMon
-Place all this in a folder on your web server<br/>
+(if apache) sudo mkdir /var/www/html/dvmMon<br />
+Place all this in a folder on your web server if using apache2, /var/www/html/dvmMon<br/>
 Open config.json and read it and set those to what you want it to be
 # Debian set up
 sudo apt install apache2<br />
