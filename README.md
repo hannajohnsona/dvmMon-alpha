@@ -9,6 +9,6 @@ php8.1-common php8.1-curl php8.1-gd php8.1-gmp php8.1-intl php8.1-mbstring php8.
 # Instructions for dvmMon
 (if apache) sudo mkdir /var/www/html/dvmMon<br />
 Place all this in a folder on your web server if using apache2, /var/www/html/dvmMon<br/>
-Open config.json and read it and set those to what you want it to be<br />
-Open idAlias.json to set radio id alias and tg id alias
+Open config.json.sample and read it and set those to what you want it to be and save it as config.json<br />
+Open idAlias.json.sample to set radio id alias and tg id alias then save it as idAlias.json
 # This is a very very very beta thing
