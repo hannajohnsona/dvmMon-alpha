@@ -3,9 +3,8 @@
      * Written by Caleb, KO4UYJ
      * ko4uyj@gmail.com
      * I am not reponsable for the actions you do with this.
-     *
      */
-    header("Refresh: 0 url=index.php");
+    //header("Refresh: 0 url=index.php");
     $configFile = file_get_contents('config.json');
     $configJson = json_decode($configFile, true); //decode said json
     $config = $configJson['rconConfigs']; //get the config object
