@@ -18,10 +18,20 @@
     </script>
 </head>
 
-<body>
-    <div id="container" style="height: 600px; overflow: scroll; margin: auto">
-        <div id="logs"></div>
+<body style="background-color: lightgrey">
+    <div style="text-align: center;">
+        <span style="font-size:20px">
+            <b>DVM Host Monitor</b>
+            <form action="getLogs.php" method="post">
+                <input style="font-size:20px" type="submit" value="Show Full Logs"/>
+            </form>
+            <form action="rcon.php" method="post">
+                <input style="font-size:20px" type="submit" value="RCON"/>
+            </form>
+        </span>
     </div>
+    <div id="container" style="height: 600px; overflow: scroll; margin: auto; background-color: aqua">
+        <div id="logs"></div>
     <div id="bottomofpage"></div>
 </body>
 </html>

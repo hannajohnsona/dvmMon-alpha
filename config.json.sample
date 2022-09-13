@@ -1,0 +1,31 @@
+{
+   "configs":[
+     {
+       "showLocation": false
+     },
+     {
+       "logDir": "/home/uyj/dvmhost/"
+     },
+     {
+       "showIdAlias": true
+     },
+     {
+       "showTgAlias": true
+     },
+     {
+       "defaultTimeZone": true,
+       "customTimeZone": "Put one of these here if false https://www.w3schools.com/php/php_ref_timezones.asp"
+     }
+  ],
+  "rconConfigs":[
+     {
+       "rconAddress": "127.0.0.1"
+     },
+     {
+       "rconPort": "9990"
+     },
+     {
+       "rconPassword": "PASSWORD"
+     }
+  ]
+}
