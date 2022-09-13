@@ -1,6 +1,7 @@
 # DVM - Mon
 # A web monitor for dvmhost
 # Debian set up
+sudo apt apt update<br />
 sudo apt install apache2<br />
 sudo add-apt-repository ppa:ondrej/PHP <br />
 sudo apt update<br />
