@@ -22,6 +22,8 @@
             <option value="">Select Action</option>
             <option value="p25-rid-page">Radio Page</option>
             <option value="p25-rid-check">Radio Check</option>
+            <option style="background-color: darkred; color: antiquewhite;" value="p25-rid-inhibit">Radio Inhibit</option>
+            <option style="background-color: darkred; color: antiquewhite;" value="p25-rid-uninhibit">Radio Uninhibit</option>
         </select>
         <span style="font-size: 20px">Radio Id:</span><input type="text" name="rid" />
         <input type="submit" value="Transmit"/>
@@ -29,3 +31,6 @@
 </center>
 </body>
 </html>
+<?php
+echo $_SERVER['SERVER_ADDR'];
+?>
