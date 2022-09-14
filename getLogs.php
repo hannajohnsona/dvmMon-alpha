@@ -15,8 +15,10 @@
      * ko4uyj@gmail.com
      */
 
+
     $configJson = file_get_contents('config.json'); //get da configs
     $config1 = json_decode($configJson, true); //decode said json
+//var_dump($config1);
     $config = $config1['configs']; //get the config object
     foreach ($config as $key => $configs){ //looping over the configs
     	 $logDirectory[$key] = $configs['logDir']; //Set the log variable
@@ -34,9 +36,6 @@
     $cDate = date("Y-m-d"); // get the time so it knows the log to use
     $lType = ".activity"; //type of log. for future additions
     $logFile = $logDirectory[1] . "DVM-" . $cDate . $lType . ".log"; //concatenate aka put the name of the log file together
-    foreach ($locationConfig as $key => $locationConfigs){ //find our answer to show config or not
-        $locationConfig = $locationConfigs['answer'];
-    }
 
 $csv = file_get_contents($logFile); //bad variable names here ik. This isnt csv.  get the log file
 $csvData = explode("\n", $csv); // Use a new line as the separating value
@@ -48,8 +47,10 @@ $tgAlias = $idAlias['tgIds']; // get the tgids and aliases
 foreach ($csvData as $key => $csvDatum) {// start the loop to display logs
 	$csvDatum = str_replace("A: ", "", $csvDatum); // get rid of the ugly A: at the beginning
 	$csvDatum = preg_replace('/\s+/', ' ', $csvDatum); // Replaces consecutive spaces with a single space
+    //if (strpos($csvDatum, 'location') !== false)
+ 	$isLocation = strpos($csvDatum, 'location') && !$showLocation[0]; //if the config says to show location, then do it!
 
- 	$isLocation = str_contains($csvDatum, 'location') && !$showLocation[0]; //if the config says to show location, then do it!
+    //str_contains($csvDatum, 'location')
 
 	$isValid = !$isLocation && !empty($csvDatum); //check validity
 
