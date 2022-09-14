@@ -1,6 +1,8 @@
 <html lang="en">
 <head>
     <title>DVM HOST</title>
+    <script>
+    </script>
 </head>
 <body>
 
@@ -55,7 +57,7 @@ foreach ($csvData as $key => $csvDatum) {// start the loop to display logs
         if ($showIdAlias[2]) { //So do i show the id alias?
 		foreach ($stuff as $value) {// bad variable name here i know. get the rid alias values
 
-			$csvDatum = str_replace($value['id'], $value['name'], $csvDatum); //replace rids with aliases
+			$csvDatum = str_replace($value['id'], "<b>" . $value['name'] . "</b>", $csvDatum); //replace rids with aliases
 		}}
         if ($showTgAlias[3]) { //so do i show the tg aliases?
 		foreach ($tgAlias as $value) {// get the tg aliases
