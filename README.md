@@ -4,7 +4,11 @@
 sudo apt apt upgrade<br />
 sudo apt apt update<br />
 sudo apt install apache2<br />
+(For Ubunto)<br />
 sudo add-apt-repository ppa:ondrej/php <br />
+(For Raspian)<br />
+sudo wget -qO /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg<br />
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list<br />
 sudo apt update<br />
 sudo apt-get install php8.1-cli
 php8.1-common php8.1-curl php8.1-gd php8.1-gmp php8.1-intl php8.1-mbstring php8.1-mysql php8.1-opcache php8.1-readline php8.1-sqlite3 php8.1-xml php8.1-zip libapache2-mod-php8.1
