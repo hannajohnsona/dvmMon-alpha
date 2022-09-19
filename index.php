@@ -11,7 +11,7 @@
             $.ajaxSetup({cache:false});
 
             setInterval(() => {
-                $('#logs').load('getLogs.php');
+                $('#logs').load('parseLogs.php');
                 $('#container').animate({ scrollTop: $('#logs').height() }, 100);
             }, 500);
         });
@@ -20,7 +20,7 @@
 
 <body style="background-color: lightgrey">
     <div style="text-align: center;">
-        <span style="font-size:20px">
+        <span style="font-size:30px">
             <b>DVM Host Monitor</b>
             <form action="getLogs.php" method="post">
                 <input style="font-size:20px" type="submit" value="Show Full Logs"/>
@@ -30,7 +30,46 @@
             </form>
         </span>
     </div>
-    <div id="container" style="height: 600px; overflow: scroll; margin: auto; background-color: aqua">
+    <strong style="font-size:30px">Current Configs</strong>
+        <br />
+        <?php include('parseConfig.php');?>
+    <br />
+    <center>
+        <strong style="font-size:30px">Last Heard</strong>
+    </center>
+    <div style="background-color: black">
+        <table>
+            <tbody>
+            <tbody align='left' style='display: table-header-group'>
+            <thead>
+            <tr>
+                <th><span style='font-size: 30px; color: green'>Date</span></th>
+                <th><span style='font-size: 30px; color: green'>Time</span></th>
+                <th><span style='font-size: 30px; color: green'>Mode</span></th>
+                <th><span style='font-size: 30px; color: green'>Type</span></th>
+                <th><span style='font-size: 30px;color: green'>Action</span></th>
+                <th><span style='font-size: 30px;color: green'>From</span></th>
+                <th><span style='font-size: 30px;color: green'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To</span></th>
+            </tr>
+            <tr style='font-size: 30px; color: green''>
+                <td>--------------&nbsp;</td>
+                <td>&nbsp;&nbsp;---------------</td>
+                <td>&nbsp;-----</td>
+                <td>----</td>
+                <td>-------------------------&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;---------&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------&nbsp;</td>
+
+            </tr>
+            </thead>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div id="container" style="height: 275px; overflow: scroll; margin: auto; background-color: black;">
+
         <div id="logs"></div>
     <div id="bottomofpage"></div>
 </body>
