@@ -119,7 +119,7 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="logs.php" class="menu-link">
+                  <a href="Logs.php" class="menu-link">
                     <div data-i18n="Without menu">Old Logs</div>
                   </a>
                 </ul>
