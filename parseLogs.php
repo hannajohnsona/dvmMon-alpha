@@ -26,9 +26,6 @@
     </style>
 
 </head>
-<table>
-<tbody style='display: table-header-group;' id="center">
-    <thead>
 <span style="color:green;">
   <?php
   //ar_dump($ridAlias);

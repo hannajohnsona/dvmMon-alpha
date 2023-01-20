@@ -452,6 +452,9 @@
                                         <th>Actions</th>
                                         <th>From</th>
                                         <th>To</th>
+					<?php
+						include('parseLogs.php');
+					?>
                                     </tr>
                                 </thead>
                                     <table>
