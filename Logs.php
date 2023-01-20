@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>DVM Monitor</title>
 
     <meta name="description" content="" />
 
@@ -82,7 +82,6 @@
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
             <a href="index.html" class="app-brand-link">
-              <span>
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">DVMMon</span>
             </a>
@@ -119,7 +118,7 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="logs.php" class="menu-link">
+                  <a href="layouts-without-menu.html" class="menu-link">
                     <div data-i18n="Without menu">Old Logs</div>
                   </a>
                 </ul>
@@ -441,25 +440,66 @@
                       <div class="col-md-12">
                         <h5 class="card-header m-0 me-2 pb-3">Recent Transmissions</h5>
                         <!-- data table begining -->
-                            <div class="table-responsive text-nowrap">
-                                <table class="table">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Mode</th>
-                                        <th>Net Type</th>
-                                        <th>Actions</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                    </tr>
-                                </thead>
-                                    <table>
-                                    <div>
-                                        <div>
-                            <div id="container" style="height: 275px; overflow: scroll; margin: auto; background-color: black;">
-			<div id="logs"></div> 
-                  </table>
+<?php
+    /*
+     * Written by Caleb KO4UYJ and Justin K4JKR
+     * ko4uyj@gmail.com
+     */
+
+
+    $configJson = file_get_contents('config.json'); //get da configs
+    $config1 = json_decode($configJson, true); //decode said json
+//var_dump($config1);
+    $config = $config1['configs']; //get the config object
+    foreach ($config as $key => $configs){ //looping over the configs
+    	 $logDirectory[$key] = $configs['logDir']; //Set the log variable
+         $showLocation[$key] = $configs['showLocation']; //set show location
+         $showIdAlias[$key] = $configs['showIdAlias']; // set show id variable
+         $showTgAlias[$key] = $configs['showTgAlias']; // set show tg variable
+         $defaultTimeZone[$key] = $configs['defaultTimeZone']; // set timeZone variable
+         $customTimeZone[$key] = $configs['customTimeZone']; // set customTimeZone variable
+    }
+    if ($defaultTimeZone[4]){//did the user want it to be default aka UTC??
+        date_default_timezone_set("UTC"); // set the time zone to UTC bc thats what dvmhost is
+    }else{
+        date_default_timezone_set($customTimeZone[4]); //set the custom time zone
+    }
+    $cDate = date("Y-m-d"); // get the time so it knows the log to use
+    $lType = ".activity"; //type of log. for future additions
+    $logFile = $logDirectory[1] . "DVM-" . $cDate . $lType . ".log"; //concatenate aka put the name of the log file together
+
+$csv = file_get_contents($logFile); //bad variable names here ik. This isnt csv.  get the log file
+$csvData = explode("\n", $csv); // Use a new line as the separating value
+$idJson = file_get_contents('idAlias.json'); // Get the aliases for ids and tgs
+$idAlias = json_decode($idJson, true); //decode said aliases
+$stuff = $idAlias['rIds']; //bad var name i know. Get the rids and aliases
+$tgAlias = $idAlias['tgIds']; // get the tgids and aliases
+
+foreach ($csvData as $key => $csvDatum) {// start the loop to display logs
+	$csvDatum = str_replace("A: ", "", $csvDatum); // get rid of the ugly A: at the beginning
+	$csvDatum = preg_replace('/\s+/', ' ', $csvDatum); // Replaces consecutive spaces with a single space
+    //if (strpos($csvDatum, 'location') !== false)
+ 	$isLocation = strpos($csvDatum, 'location') && !$showLocation[0]; //if the config says to show location, then do it!
+
+    //str_contains($csvDatum, 'location')
+
+	$isValid = !$isLocation && !empty($csvDatum); //check validity
+
+	if ($isValid) { //check validity
+        if ($showIdAlias[2]) { //So do i show the id alias
+		foreach ($stuff as $value) {// bad variable name here i know. get the rid alias values
+
+			$csvDatum = str_replace($value['id'], "<br>" . $value['name'] . "</br>", $csvDatum); //replace rids with aliases
+		}}
+        if ($showTgAlias[3]) { //so do i show the tg aliases?
+		foreach ($tgAlias as $value) {// get the tg aliases
+                        $csvDatum = str_replace($value['id'], $value['name'], $csvDatum); //replace tg id with rid
+                }}
+
+		echo "<span style='font-size:25px'>" . $csvDatum . "</span><br/>"; // echo it all to the screen!!! Finally!!
+	}
+}
+?>
                 </div>
               </div>
                                              
