@@ -452,20 +452,6 @@
                                         <th>Actions</th>
                                         <th>From</th>
                                         <th>To</th>
-<script>
-$.ajax(
-  'parseLogs.php',
-  {
-      success: function(data) {
-        alert('AJAX call was successful!');
-        alert('Data from the server' + data);
-      };
-      error: function() {
-        alert('There was some error performing the AJAX call!');
-      }
-   }
-);
-</script>
 					<?php
 						include('parseLogs.php');
 					?>
@@ -475,6 +461,10 @@ $.ajax(
 				<div id="logs">
 				</div>
 				</td>
+					<?php
+						include('parseLogs.php');
+					?>
+                                    </tr>
                                 </thead>
                                     <table>
                                     <div>
