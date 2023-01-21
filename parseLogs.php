@@ -2,7 +2,7 @@
     date_default_timezone_set("UTC"); // set the time zone to UTC bc thats what dvmhost is
     $cDate = date("Y-m-d"); // get the time so it knows the log to use
     $lType = ".activity"; //type of log. for future additions
-    $logFile = "/home/uyj/dvmhost/" . "DVM-" . $cDate . $lType . ".log"; //concatenate aka put the name of the log file together
+    $logFile = "/opt/dvmhost/" . "DVM-" . $cDate . $lType . ".log"; //concatenate aka put the name of the log file together
     $logFileData = file_get_contents($logFile); //bad variable names here ik. This isnt csv.  get the log file
     $logFileData = explode("\n", $logFileData); // Use a new line as the separating value
 
@@ -26,9 +26,6 @@
     </style>
 
 </head>
-<table>
-<tbody style='display: table-header-group;' id="center">
-    <thead>
 <span style="color:green;">
   <?php
   //ar_dump($ridAlias);
@@ -64,6 +61,7 @@ foreach ($logLineParts as $key => $rows) :
 ?>
 
 </span>
+<tbody class="table-border-bottom-0">
   <tr class="item_row" style="align-content: center">
       <?php for ($x = 1; $x <= 4; $x++) :?>
         <?php
@@ -74,12 +72,13 @@ foreach ($logLineParts as $key => $rows) :
                 //echo $alias['id'];
             }*/
             ?>
-        <td> <?php echo "<span style='font-size: 30px; color:green'>" . $rows[$x] . "</span>"; ?>&nbsp;&nbsp;</td>
+<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+        <td> <?php echo "<span style='font-size: 15px; color:green'>" . $rows[$x] . "</span>"; ?>&nbsp;&nbsp;</td>
       <?php endfor;?>
-      <td> <?php echo "<span style='font-size: 30px; font-family: sans-serif;'>" . $action . "</span>"; ?>&nbsp;&nbsp;</td>
-      <td> <?php echo "<span style='font-size: 30px; color: A4F644;'>" . $srcId . "</span>"; ?>&nbsp;&nbsp;</td>
-      <td> <?php echo "<span style='font-size: 30px; color: A4F644;'> " . $tTg . "</span>"; ?>&nbsp;&nbsp;</td>
-  </tr>
+      <td> <?php echo "<span style='font-size: 15px; font-family: sans-serif;'>" . $action . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td> <?php echo "<span style='font-size: 15px; color: A4F644;'>" . $srcId . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td> <?php echo "<span style='font-size: 15px; color: A4F644;'> " . $tTg . "</span>"; ?>&nbsp;&nbsp;</td>
+  </td></div></tr>
 <?php endforeach;
 echo "</tbody>";
 echo "</table>";

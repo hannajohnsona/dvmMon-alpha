@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>DVM Monitor: Home</title>
 
     <meta name="description" content="" />
 
@@ -119,7 +119,7 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="logs.php" class="menu-link">
+                  <a href="Logs.php" class="menu-link">
                     <div data-i18n="Without menu">Old Logs</div>
                   </a>
                 </ul>
@@ -341,7 +341,7 @@
                           <h5 class="card-title text-primary">Configuration</h5>
                           <p class="mb-4">
                             <?php // include('parseConfig.php');?>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                              config details here.
                           </p>
 
                           <a href="javascript:;" class="btn btn-sm btn-outline-primary">View config</a>
@@ -392,8 +392,8 @@
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1">Top Radio</span>
-                          <h3 class="card-title mb-2">$12,628</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
+                          <h3 class="card-title mb-2">7005</h3>
+                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> 7006</small>
                         </div>
                       </div>
                     </div>
@@ -426,8 +426,8 @@
                             </div>
                           </div>
                           <span>Top Group</span>
-                          <h3 class="card-title text-nowrap mb-1">$4,679</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
+                          <h3 class="card-title text-nowrap mb-1">31611</h3>
+                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> 31611</small>
                         </div>
                       </div>
                     </div>
@@ -435,10 +435,10 @@
                 </div>
                 </div>
                 <!-- Total Revenue -->
-                <div class="col-15 col-lg-15 order-2 order-md-3 order-lg-2 mb-4">
+                <div class="col-20 col-lg-20 order-2 order-md-3 order-lg-2 mb-5">
                   <div class="card">
                     <div class="row row-bordered g-0">
-                      <div class="col-md-12">
+                      <div class="col-md-25">
                         <h5 class="card-header m-0 me-2 pb-3">Recent Transmissions</h5>
                         <!-- data table begining -->
                             <div class="table-responsive text-nowrap">
@@ -452,13 +452,33 @@
                                         <th>Actions</th>
                                         <th>From</th>
                                         <th>To</th>
-                                    </tr>
+<script>
+$.ajax(
+  'parseLogs.php',
+  {
+      success: function(data) {
+        alert('AJAX call was successful!');
+        alert('Data from the server' + data);
+      };
+      error: function() {
+        alert('There was some error performing the AJAX call!');
+      }
+   }
+);
+</script>
+					<?php
+						include('parseLogs.php');
+					?>
+                                 </tr>
+				<td>
+				<div id="container" style="height: 65px; width: 65px;  overflow: scroll; margin:auto; background-color: white;">
+				<div id="logs">
+				</div>
+				</td>
                                 </thead>
                                     <table>
                                     <div>
                                         <div>
-                            <div id="container" style="height: 275px; overflow: scroll; margin: auto; background-color: black;">
-			<div id="logs"></div> 
                   </table>
                 </div>
               </div>

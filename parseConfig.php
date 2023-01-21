@@ -1,5 +1,5 @@
 <?php
-    $yaml = file_get_contents('/home/uyj/dvmhost/ctrsCC.yml');
+    $yaml = file_get_contents('/opt/dvmhost/configVC.yml');
     $parsed = yaml_parse($yaml);
     $callsign = $parsed['system']['cwId']['callsign'];
     $identity = $parsed['system']['identity'];
