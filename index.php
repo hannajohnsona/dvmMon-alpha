@@ -26,7 +26,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-
+<?php       $page = $_SERVER['PHP_SELF'];
+$sec = "10";
+header("Refresh: $sec; url=$page");
+     ?>
     <title>DVM Monitor: Home</title>
 
     <meta name="description" content="" />
@@ -54,18 +57,7 @@
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css" />
-
-    <!-- Page CSS -->
-    <script>
-        $(document).ready(() => {
-            $.ajaxSetup({cache:false});
-
-            setInterval(() => {
-                $('#logs').load('parseLogs.php');
-                $('#container').animate({ scrollTop: $('#logs').height() }, 100);
-            }, 500);
-        });
-    </script>   
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Helpers -->
       <script src="assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -73,7 +65,7 @@
     <script src="assets/js/config.js"></script>
   </head>
 
-  <body>
+  <body onload= "table();">
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
@@ -340,7 +332,7 @@
                         <div class="card-body">
                           <h5 class="card-title text-primary">Configuration</h5>
                           <p class="mb-4">
-                            <?php // include('parseConfig.php');?>
+                            <?php //include('parseConfig.php');?>
                               config details here.
                           </p>
 
@@ -452,29 +444,31 @@
                                         <th>Actions</th>
                                         <th>From</th>
                                         <th>To</th>
-					<?php
-						include('parseLogs.php');
-					?>
-                                 </tr>
-				<td>
-				<div id="container" style="height: 65px; width: 65px;  overflow: scroll; margin:auto; background-color: white;">
-				<div id="logs">
-				</div>
-				</td>
-					<?php
-						include('parseLogs.php');
-					?>
+					        
+                                    
+                                   <script type="text/javascript">
+var auto_refresh = setInterval(
+function ()
+{
+$('#load_tweets').load('parseLogs.php').fadeIn("slow");
+}, 10000); // refresh every 10000 milliseconds
+
+<div id="load_tweets"> </div>
+
+</script>
+                            <?php include('parseLogs.php');?>            
                                     </tr>
+				<td>
+                <div id="container" style="height: 65px; width: 65px;  overflow: scroll; margin:auto; background-color: white;"/>
+				<div id="logs"/>
+                    
                                 </thead>
-                                    <table>
-                                    <div>
-                                        <div>
-                  </table>
-                </div>
-              </div>
-                                             
-		</div>
-                              <!-- end of data table -->
+                                    
+                                </table>
+                            </div>
+		              </div>
+                        
+                            <!-- end of data table -->
                       </div>
                       <div class="col-md-4">
                         <div class="card-body">
@@ -546,6 +540,7 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+    
     <script src="assets/vendor/libs/jquery/jquery.js"></script>
     <script src="assets/vendor/libs/popper/popper.js"></script>
     <script src="assets/vendor/js/bootstrap.js"></script>

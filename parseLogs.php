@@ -61,10 +61,13 @@ foreach ($logLineParts as $key => $rows) :
 ?>
 
 </span>
-<tbody class="table-border-bottom-0">
-  <tr class="item_row" style="align-content: center">
+<tbody class="table-border-bottom-0" id="container">
+  <tr class="item_row" id="loglist" style="align-content: center">
       <?php for ($x = 1; $x <= 4; $x++) :?>
         <?php
+      
+ 
+      
           $rows[$x] = str_replace("Net", "NET", $rows[$x]);
           //TODO: Fix to use id and tg alias
 /*            foreach ($ridAlias as $alias){
@@ -72,7 +75,7 @@ foreach ($logLineParts as $key => $rows) :
                 //echo $alias['id'];
             }*/
             ?>
-<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none" id="loglist">
         <td> <?php echo "<span style='font-size: 15px; color:green'>" . $rows[$x] . "</span>"; ?>&nbsp;&nbsp;</td>
       <?php endfor;?>
       <td> <?php echo "<span style='font-size: 15px; font-family: sans-serif;'>" . $action . "</span>"; ?>&nbsp;&nbsp;</td>
