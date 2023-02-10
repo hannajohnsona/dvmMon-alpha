@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <!-- =========================================================
 * Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
 ==============================================================
@@ -21,13 +22,12 @@
 >
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="20">
-      <meta
+    <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Dashboard  | DVMMon</title>
+    <title>Documentation - DVMMon</title>
 
     <meta name="description" content="" />
 
@@ -53,8 +53,6 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css" />
-
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -63,7 +61,6 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="assets/js/config.js"></script>
-    
   </head>
 
   <body>
@@ -130,7 +127,7 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">dvmmon</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">DVMMon</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -142,7 +139,7 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <li class="menu-item">
               <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -213,8 +210,8 @@
                   </a>
                 </li>
               </ul>
-            </li>
-        
+              </li>
+            
             <!-- Misc -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
             <li class="menu-item">
@@ -227,13 +224,12 @@
                 <div data-i18n="Support">Support</div>
               </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item active open">
               <a
-                href="documentation.html"
-                
+                href="#"
                 class="menu-link"
               >
-                <i class="menu-icon tf-icons bx bx-file"></i>
+                <i class="menu-icon tf-icons bx bx-file bx-box"></i>
                 <div data-i18n="Documentation">Documentation</div>
               </a>
             </li>
@@ -335,7 +331,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="login.php">
+                      <a class="dropdown-item" href="auth-login-basic.html">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
@@ -354,85 +350,51 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="row">
-                <div class="col-lg-8 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                        <div class="card-body">
-                          <h5 class="card-title text-primary">Configuration</h5>
-                          <p class="mb-4">
-                            <?php include('parseConfig.php');?>
-                            </p>
-                        </div>
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="assets/img/illustrations/man-with-laptop-light.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-8 col-lg-4 order-3 order-md-2">
-                  <div class="row">
-                    <div class="col-6 mb-4">
-                    </div>
-                    <div class="col-6 mb-4">
-                    </div>
-                    <!-- </div>
-    <div class="row"> -->
-                    <div class="col-12 mb-4">
-                        
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <!-- Order Statistics -->
-                <div class="col-md-6 col-lg-12 col-xl-12 order-0 mb-4">
-                  <div class="class=card">
-                    <div class="row row-bordered g-12">
-                      <div class="col-md-25">
-                        <h5 class="card-header m-0 me-2 pb-3">Recent Transmissions</h5>
-                        <!-- data table begining -->
-                            <div class="table-responsive text-nowrap"id="table-refresh">
-                                <table class="table">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Mode</th>
-                                        <th>Net Type</th>
-                                        <th>Actions</th>
-                                        <th>From</th>
-                                        <th>To</th>
-										
-					           
-                                    </tr>
-                                
-                                    </thead>
-                                <div id="logs">
-                                <?php include('parseLogs.php');?></div>
-                                    </div> 
-                                </table>
-                             </div>
-               
-                        </div>           
-                        
-                            <!-- end of data table -->
-                      </div>
-                </div>
-                <!--/ Order Statistics -->
+              <h4 class="fw-bold py-3 mb-4">Documentation</h4>
 
+                <!-- Customizing headings -->
+
+                <!-- Paragraph -->
+                <div class="col-lg">
+                  <div class="card mb-4">
+                    <h5 class="card-header">Requirements</h5>
+                    <table class="table table-borderless">
+                      <tbody>
+                        <tr>
+                          <td class="align-middle"><small class="text-light fw-semibold">PHP</small></td>
+                          <td class="py-3">
+                            <p class="mb-0">
+                              Php 8+, php-yaml is required to use this website. If you see a blank page you need to install the prerequisites.
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="align-middle"><small class="text-light fw-semibold">MySQL</small></td>
+                          <td class="py-4">
+                            <p class="lead mb-0">
+                              Install your favorite SQL server then query scripts to install database. configure settings to connect to database. After this is all done register account. You may disable registration page or keep it open to allow users to register. recommended to disable registration page to prevent unauthorized use.
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="align-middle"><small class="text-light fw-semibold">RCON</small></td>
+                          <td class="py-3">
+                            <p class="text-muted mb-0">
+                              RCON allows you to control p25/dmr system. it has been removed for security. If you wish to obtain it, contact github creator for the file.
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-            </div>
+
+              
+                    </div>
+                  </div>
+                </div>
+              </div>
             <!-- / Content -->
 
             <!-- Footer -->
@@ -491,13 +453,11 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="assets/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="assets/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

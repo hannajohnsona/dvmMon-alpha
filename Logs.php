@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -27,7 +28,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>DVM Monitor</title>
+    <title>DVM Monitor: Logs</title>
 
     <meta name="description" content="" />
 
@@ -81,7 +82,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="index.php" class="app-brand-link">
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">DVMMon</span>
             </a>
@@ -96,7 +97,7 @@
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
-              <a href="index.html" class="menu-link">
+              <a href="index.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
@@ -118,7 +119,7 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
+                  <a href="Logs.php" class="menu-link">
                     <div data-i18n="Without menu">Old Logs</div>
                   </a>
                 </ul>
@@ -391,8 +392,8 @@
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1">Top Radio</span>
-                          <h3 class="card-title mb-2">$12,628</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
+                          <h3 class="card-title mb-2">$7005</h3>
+                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> 7006</small>
                         </div>
                       </div>
                     </div>
@@ -425,8 +426,8 @@
                             </div>
                           </div>
                           <span>Top Group</span>
-                          <h3 class="card-title text-nowrap mb-1">$4,679</h3>
-                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
+                          <h3 class="card-title text-nowrap mb-1">1161</h3>
+                          <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> 1162</small>
                         </div>
                       </div>
                     </div>
@@ -434,12 +435,13 @@
                 </div>
                 </div>
                 <!-- Total Revenue -->
-                <div class="col-15 col-lg-15 order-2 order-md-3 order-lg-2 mb-4">
+                <div class="col-35 col-lg-35 order-2 order-md-3 order-lg-15 mb-4">
                   <div class="card">
                     <div class="row row-bordered g-0">
-                      <div class="col-md-12">
+                      <div class="col-md-35">
                         <h5 class="card-header m-0 me-2 pb-3">Recent Transmissions</h5>
-                        <!-- data table begining -->
+                      </div>
+</div>  <!-- data table begining -->
 <?php
     /*
      * Written by Caleb KO4UYJ and Justin K4JKR
